@@ -1,0 +1,101 @@
+/*
+ * Ribbon
+ */
+.page_ribbon {
+	background-color:black;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 45px;
+}
+.page_ribbon_logo {
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+/*
+ * Toolbar
+ */
+.page_toolbar {
+	background-color:#fff;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 32px;
+	border-bottom: 1px solid #F9F9F9;
+ }
+ 
+.page-toolbar-items {
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	margin: 0;
+}
+
+.page-toolbar-item {
+	float: left;
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.page-toolbar-item-separator {
+	width: 0.4rem;
+	border-right: 1px solid #ccc;
+}
+/*
+ * Tree
+ */
+.cloud-ide-tree{
+	position:absolute;
+	left:0px;
+	width:290px;
+	top:78px;
+	bottom:0px;
+	/*resize: horizontal;*/
+	overflow: auto;
+}
+/*
+ * Editor
+ */
+.cloud-ide-editor{
+	position:absolute;
+	left:0px;
+	right:0px;
+	top:34px;
+	bottom:0px;
+}
+/*
+ * Tree-Editor-Handle
+ */
+.cloud-ide-tree-editor-handle{
+	position:absolute;
+	left:290px;
+	width:10px;
+	top:78px;
+	bottom:0px;
+	background-color: #E2E2E2;
+	cursor: ew-resize;
+}
+.cloud-ide-tree-editor-handle div{
+	position:absolute;
+	top:50%;
+	width:100%;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bolder;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(73, 69, 69, 1);
+}
+
+.unselectable {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

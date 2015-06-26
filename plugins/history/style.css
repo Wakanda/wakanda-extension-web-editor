@@ -1,0 +1,16 @@
+.page-toolbar-item-undo-enabled  {
+	background-image: url("./images/undo.png");
+}
+
+.page-toolbar-item-undo {
+	background-image: url("./images/undo_disabled.png");
+}
+
+.page-toolbar-item-redo-enabled {
+	background-image: url("./images/redo.png");
+	opacity:1;
+}
+
+.page-toolbar-item-redo{
+	background-image: url("./images/redo_disabled.png");
+}

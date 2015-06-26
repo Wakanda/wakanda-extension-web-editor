@@ -1,0 +1,36 @@
+{
+    "extension": 
+    {
+        "name": "codeEditor",
+        "version": "0.0.1",
+        "description": "Code Mirror For Wakanda Studio",
+        "icon": "icon.png",
+        "senders": [
+        ],
+        "actions": [
+					{
+                        "name": "load",
+                        "title": "Load"
+                    }
+        ],
+		
+		"editors":[ 
+					{ 
+						"fileExtensions": ["html", "css"],
+						"editor": "index.html",
+						"operations" : {
+							   "load" : {
+											   "callback" : "load",
+											   "target"    : "extension" 
+							   },
+							   "save" : {
+											   "callback"  : "IDE.shortcut_plugins_save_save",
+											   "target"    : "webZone" 
+							   }
+                        }
+					}
+		],
+		
+        "lifetime": "application_lifetime"
+    }
+}

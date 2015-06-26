@@ -1,0 +1,10 @@
+.page-toolbar-item-save-enabled {
+	opacity:1 !important;
+}
+
+.page-toolbar-item-save {
+	background-position-x: 5px;
+	background-size: 26px;
+	background-image: url("./images/save.png");
+	opacity:0.5;
+}

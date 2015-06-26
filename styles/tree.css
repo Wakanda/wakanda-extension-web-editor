@@ -1,0 +1,77 @@
+.cloud-ide-tree-ext-home {
+	background-image: url("../images/tree/home.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-waperm {
+	background-image: url("../images/tree/permissions.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-waproject {
+	background-image: url("../images/tree/project.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-wadirectory {
+	background-image: url("../images/tree/directory.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-wasolution{
+	background-image: url("../images/tree/solution.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-wasettings {
+	/*background-image: url("../images/tree/settings.png") !important;*/
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-wamodel {
+	background-image: url("../images/tree/catalog.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-folder {
+	background-image: url("../images/tree/folder-closed.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-css {
+	background-image: url("../images/tree/css.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-html {
+	background-image: url("../images/tree/html.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-js {
+	background-image: url("../images/tree/javascript.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-json {
+	background-image: url("../images/tree/json.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
+
+.cloud-ide-tree-ext-unknown {
+	background-image: url("../images/tree/unknown.png") !important;
+	background-size: 16px 16px;
+	background-position: 4px 4px !important;
+}
