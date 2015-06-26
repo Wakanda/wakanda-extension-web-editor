@@ -768,21 +768,28 @@
 			console.log(IDE.qParams.mode);
 			switch (IDE.qParams.mode) {
 				case "html":
-					__webpack_require__.e/* nsure */(1, function (require) {
+					__webpack_require__.e/* nsure */(4, function (require) {
 						var Editor = __webpack_require__(26);
 						IDE.editor = new Editor({ id: "editor", lib: ace });
 						loaded();
 					});
 					break;
+				case "css":
+					__webpack_require__.e/* nsure */(5, function (require) {
+						var Editor = __webpack_require__(73);
+						IDE.editor = new Editor({ id: "editor", lib: ace });
+						loaded();
+					});
+					break;
 				case "javascript":
-					__webpack_require__.e/* nsure */(2, function (require) {
+					__webpack_require__.e/* nsure */(6, function (require) {
 						var Editor = __webpack_require__(29);
 						IDE.editor = new Editor({ id: "editor", lib: ace });
 						loaded();
 					});
 					break;
 				default:
-					__webpack_require__.e/* nsure */(3, function (require) {
+					__webpack_require__.e/* nsure */(7, function (require) {
 						var Editor = __webpack_require__(27);
 						IDE.editor = new Editor({ id: "editor", lib: ace, mode: IDE.qParams.mode });
 						loaded();
@@ -5670,12 +5677,17 @@
 			IDE.qParams = qParams;
 
 			IDE.qParams.path = studio.extension.storage.getItem("file");
+
+			// Q&D! to rewrite!
+			if (IDE.qParams.path.indexOf(".html", this.length - ".html".length) !== -1) IDE.qParams.mode = "html";else if (IDE.qParams.path.indexOf(".css", this.length - ".css".length) !== -1) IDE.qParams.mode = "css";
+
 			if (IDE.qParams.path) {
 				var extResult = IDE.qParams.path.match(/([^\/\.]+)\.?([^\.]+)$/);
 				console.log(extResult);
 				if (extResult) {
 					IDE.filename = extResult[0];
 					if (!mode) {
+						//studio.alert('mode: ' + mode);
 						mode = mapExtToEditorMode(extResult[2].toLowerCase());
 					}
 					console.log(mode);

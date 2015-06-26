@@ -12,6 +12,13 @@ var Module =  {
 					loaded();
 				});
 				break;
+			case "css":
+				require.ensure(["./EditorCSS.js"], function(require){
+					var Editor  = require("./EditorCSS.js");
+					IDE.editor = new Editor({id:"editor", lib: ace});
+					loaded();
+				});
+				break;
 			case "javascript":
 				require.ensure(["./EditorJS.js"], function(require){
 					var Editor  = require("./EditorJS.js");

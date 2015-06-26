@@ -9,7 +9,6 @@ class EditorJS extends Editor {
 	}
 	
 	initMode() {
-		studio.alert('Editor JS loading')
 		require("../../../lib/ace-min-noconflict/ext-language_tools");
 		this.setOptions({
 			enableBasicAutocompletion: true,

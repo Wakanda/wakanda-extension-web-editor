@@ -249,7 +249,6 @@ webpackJsonp([2,3],{
 		_createClass(EditorJS, {
 			initMode: {
 				value: function initMode() {
-					studio.alert("Editor JS loading");
 					__webpack_require__(30);
 					this.setOptions({
 						enableBasicAutocompletion: true,

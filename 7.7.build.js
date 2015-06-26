@@ -1,17 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 68:
-/*!**************************************!*\
-  !*** ./src/modules/editor/Editor.js ***!
-  \**************************************/
+/***/ 27:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-	
+
 	var Editor = (function () {
 		function Editor(_ref) {
 			var lib = _ref.lib;
@@ -23,23 +20,27 @@ webpackJsonp([7],{
 			var mode = _ref$mode === undefined ? "javascript" : _ref$mode;
 			var _ref$options = _ref.options;
 			var options = _ref$options === undefined ? {} : _ref$options;
-	
+
 			_classCallCheck(this, Editor);
-	
+
 			this.lib = lib;
 			this.mode = this.mode || mode;
 			this.theme = theme;
 			this.options = options;
 			this._dirty = false;
+
+			var _EventEmitter = __webpack_require__(22);
+			this.events = new _EventEmitter();
+
 			this.init(id);
 		}
-	
+
 		_createClass(Editor, {
 			init: {
 				value: function init(id) {
-	
+
 					this.editor = this.create(id);
-	
+
 					this.setTheme(this.theme);
 					this.setMode(this.mode);
 					this.setOptions(this.options);
@@ -53,49 +54,80 @@ webpackJsonp([7],{
 			registerEvents: {
 				value: function registerEvents() {
 					var _this = this;
-	
+
 					var document = this.document || this.editor.session.getDocument();
-	
+
 					document.on("change", function () {
 						for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 							args[_key] = arguments[_key];
 						}
-	
+
 						setTimeout(function () {
 							return _this.dirty = true;
 						}, 0);
 						setTimeout(function () {
-							return IDE.EventManager.emit("editor.onchange", { name: "editor.onchange", params: args });
+							return _this.events.emit("editor.onchange", { name: "editor.onchange", params: args });
 						}, 0);
 					});
 				}
 			},
+			readTextFile: {
+
+				/*
+	   loadFile(){
+	   	var path = IDE.qParams.path;
+	   	
+	   	IDE.fileManager.getFile(path).then((event)=>{
+	   		var content = event.response;
+	   		
+	   		this.setContent(content);
+	   		//
+	   		// Ace Workaround
+	   		// {
+	   		//
+	   		this.editor.session.setUndoManager(new (this.lib.UndoManager)());
+	   		//
+	   		// }
+	   		//
+	   		 
+	   		this.ready();			
+	   	});
+	   }
+	   */
+
+				value: function readTextFile(filePath) {
+					var rawFile = new XMLHttpRequest();
+					var allText = "";
+					rawFile.open("GET", filePath, false);
+					rawFile.onreadystatechange = function () {
+						if (rawFile.readyState === 4) {
+							if (rawFile.status === 200 || rawFile.status == 0) {
+								allText = rawFile.responseText;
+								//studio.alert(allText);
+							}
+						}
+					};
+					rawFile.send(null);
+					return allText;
+				}
+			},
 			loadFile: {
 				value: function loadFile() {
-					var _this = this;
-	
 					var path = IDE.qParams.path;
-					IDE.fileManager.getFile(path).then(function (event) {
-						var content = event.response;
-	
-						_this.setContent(content);
-						/*
-	      * Ace Workaround
-	      * {
-	      */
-						_this.editor.session.setUndoManager(new _this.lib.UndoManager());
-						/*
-	      * }
-	      */
-	
-						_this.ready();
-					});
+
+					var content = this.readTextFile(path);
+
+					//studio.alert(content);
+
+					this.setContent(content);
+					this.editor.session.setUndoManager(new this.lib.UndoManager());
+					this.ready();
 				}
 			},
 			ready: {
 				value: function ready() {
 					this.registerEvents();
-					IDE.EventManager.emit("editor.onready", { name: "editor.onready" });
+					this.events.emit("editor.onready", { name: "editor.onready" });
 				}
 			},
 			create: {
@@ -147,24 +179,38 @@ webpackJsonp([7],{
 				set: function (value) {
 					if (value && !this._dirty) {
 						this._dirty = true;
-						IDE.EventManager.emit("editor.ondirty", { name: "editor.ondirty" });
+						this.events.emit("editor.ondirty", { name: "editor.ondirty" });
 					} else if (!value && this._dirty) {
 						this._dirty = false;
-						IDE.EventManager.emit("editor.onclean", { name: "editor.onclean" });
+						this.events.emit("editor.onclean", { name: "editor.onclean" });
 					}
 				},
 				get: function () {
 					return this._dirty;
 				}
+			},
+			onDirty: {
+				value: function onDirty(callback) {
+					this.events.on("editor.ondirty", callback);
+				}
+			},
+			onClean: {
+				value: function onClean(callback) {
+					this.events.on("editor.onclean", callback);
+				}
+			},
+			onChange: {
+				value: function onChange(callback) {
+					this.events.on("editor.onchange", callback);
+				}
 			}
 		});
-	
+
 		return Editor;
 	})();
-	
+
 	module.exports = Editor;
 
 /***/ }
 
 });
-//# sourceMappingURL=7.7.build.js.map
