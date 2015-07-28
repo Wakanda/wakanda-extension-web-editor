@@ -20,8 +20,8 @@
 						"editor": "index.html",
 						"operations" : {
 							   "load" : {
-											   "callback" : "load",
-											   "target"    : "extension" 
+											   "callback" : "IDE.loadFile",
+											   "target"    : "webZone" 
 							   },
 							   "save" : {
 											   "callback"  : "IDE.shortcut_plugins_save_save",

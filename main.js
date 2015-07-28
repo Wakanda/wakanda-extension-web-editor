@@ -17,19 +17,31 @@ IDE.Core = new Core([
 	"editor"
 	//"tabManager"	
 ]);
+
 IDE.Core.onReady(function(){
 	//studio.alert('ready');
 	IDE.plugins.onPluginsLoaded(function(){
 		IDE.plugins.activate("history");
 		IDE.plugins.activate("save");
 		IDE.plugins.events.emit("all_activated");
+		studio.editor.loaded();
 	});
+
 	//studio.alert('gogo');
 	IDE.plugins.loadMultiple([
 		"history",
 		"save"
-	]);
+	]);	
 });
+
+IDE.loadFile = function(fn) {
+	IDE.qParams.path = fn;
+	//alert("IDE.qParams.path =  " + IDE.qParams.path);
+
+	IDE.editor.loadFile();
+};
+
+	
 IDE.shortcut_plugins_save_save = function() {
 	IDE['plugins']['plugins']['save']['code']['save']();
-}
+};

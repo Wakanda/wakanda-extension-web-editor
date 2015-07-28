@@ -1,4 +1,4 @@
-webpackJsonp([1,3],{
+webpackJsonp([1,4],{
 
 /***/ 26:
 /***/ function(module, exports, __webpack_require__) {
@@ -89,17 +89,13 @@ webpackJsonp([1,3],{
 		_createClass(Editor, {
 			init: {
 				value: function init(id) {
-
 					this.editor = this.create(id);
 
 					this.setTheme(this.theme);
 					this.setMode(this.mode);
 					this.setOptions(this.options);
-					if (IDE.qParams.path) {
-						this.loadFile();
-					} else {
-						this.ready();
-					}
+
+					this.ready();
 				}
 			},
 			registerEvents: {
@@ -113,6 +109,7 @@ webpackJsonp([1,3],{
 							args[_key] = arguments[_key];
 						}
 
+						//alert ('in registerEvents, set dirty to true');
 						setTimeout(function () {
 							return _this.dirty = true;
 						}, 0);
@@ -165,20 +162,27 @@ webpackJsonp([1,3],{
 			loadFile: {
 				value: function loadFile() {
 					var path = IDE.qParams.path;
+					//studio.alert('loadFile ' + path);
+
+					if (IDE.qParams.path.indexOf(".html", this.length - ".html".length) !== -1) IDE.qParams.mode = "html";else if (IDE.qParams.path.indexOf(".css", this.length - ".css".length) !== -1) IDE.qParams.mode = "css";else IDE.qParams.mode = "html";
 
 					var content = this.readTextFile(path);
 
-					//studio.alert(content);
-
 					this.setContent(content);
+					this.setMode(IDE.qParams.mode);
 					this.editor.session.setUndoManager(new this.lib.UndoManager());
-					this.ready();
+					//alert ('in loadFile, set dirty to false');
+					//this.dirty = false;		
+					this.registerEvents();
 				}
 			},
 			ready: {
 				value: function ready() {
-					this.registerEvents();
-					this.events.emit("editor.onready", { name: "editor.onready" });
+					var _this = this;
+
+					setTimeout(function () {
+						return _this.events.emit("editor.onready", { name: "editor.onready" });
+					}, 0);
 				}
 			},
 			create: {
@@ -229,12 +233,14 @@ webpackJsonp([1,3],{
 			dirty: {
 				set: function (value) {
 					if (value && !this._dirty) {
+						//alert ('set dirty to true');
 						this._dirty = true;
 						this.events.emit("editor.ondirty", { name: "editor.ondirty" });
 					} else if (!value && this._dirty) {
+						//alert ('set dirty to false');
 						this._dirty = false;
 						this.events.emit("editor.onclean", { name: "editor.onclean" });
-					}
+					} else {}
 				},
 				get: function () {
 					return this._dirty;
@@ -254,6 +260,11 @@ webpackJsonp([1,3],{
 				value: function onChange(callback) {
 					this.events.on("editor.onchange", callback);
 				}
+			},
+			onReady: {
+				value: function onReady(callback) {
+					this.events.on("editor.onready", callback);
+				}
 			}
 		});
 
@@ -261,6 +272,8 @@ webpackJsonp([1,3],{
 	})();
 
 	module.exports = Editor;
+
+	//alert ('set dirty to nothing');
 
 /***/ },
 

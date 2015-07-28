@@ -14,23 +14,20 @@ class Editor {
 	}
 	
 	init(id) {
-		
 		this.editor = this.create(id);
 		
 		this.setTheme(this.theme);
 		this.setMode(this.mode);
 		this.setOptions(this.options);
-		if (IDE.qParams.path){
-			this.loadFile();
-		} else {
-			this.ready();
-		}
+		
+		this.ready();
 	}
 	
 	registerEvents() {
 		var document = this.document || this.editor.session.getDocument();
 		
 		document.on("change", (...args)=> {
+			//alert ('in registerEvents, set dirty to true');
 			setTimeout(()=>this.dirty = true , 0);
 			setTimeout(()=>this.events.emit("editor.onchange", {name : "editor.onchange", params : args}), 0);
 		});
@@ -76,20 +73,29 @@ class Editor {
 	
 	loadFile(){
 		var path = IDE.qParams.path;
+		//studio.alert('loadFile ' + path);
 		
+		if (IDE.qParams.path.indexOf('.html', this.length - '.html'.length) !== -1)
+			IDE.qParams.mode = 'html';
+		else if (IDE.qParams.path.indexOf('.css', this.length - '.css'.length) !== -1)
+			IDE.qParams.mode = 'css';
+		else
+			IDE.qParams.mode = 'html';
+	
 		var content = this.readTextFile(path);
 		
 		
-		//studio.alert(content);
 		
 		this.setContent(content);
+		this.setMode(IDE.qParams.mode);
 		this.editor.session.setUndoManager(new (this.lib.UndoManager)());
-		this.ready();
+		//alert ('in loadFile, set dirty to false');
+		//this.dirty = false;		
+		this.registerEvents();
 	}
 	
 	ready() {
-		this.registerEvents();
-		this.events.emit("editor.onready", {name : "editor.onready"});
+		setTimeout(()=>this.events.emit("editor.onready", {name : "editor.onready"}), 0);		
 	}
 	
 	create(id) {
@@ -129,12 +135,16 @@ class Editor {
 	}
 	
 	set dirty(value){
-		if(value && ! this._dirty){
+		if (value && ! this._dirty) {
+			//alert ('set dirty to true');
 			this._dirty = true;
 			this.events.emit("editor.ondirty", {name : "editor.ondirty"});
-		}else if(!value && this._dirty){
+		} else if (!value && this._dirty) {
+			//alert ('set dirty to false');
 			this._dirty = false;
 			this.events.emit("editor.onclean", {name : "editor.onclean"});
+		} else {
+			//alert ('set dirty to nothing');
 		}
 	}
 	
@@ -152,6 +162,10 @@ class Editor {
 	
 	onChange(callback){
 		this.events.on("editor.onchange", callback);
+	}
+	
+	onReady(callback){
+		this.events.on("editor.onready", callback);
 	}
 	
 }

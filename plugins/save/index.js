@@ -53,6 +53,7 @@ export default {
 	
 	onDirty(){
 		//document.title = `(*) ${document.title}`;
+		//alert('on dirty, by whom?');
 		studio.editor.setDirty(true);
 		IDE.toolbar.addClassToItem("save", "save-enabled");
 	},
