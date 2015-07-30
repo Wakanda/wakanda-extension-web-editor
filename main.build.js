@@ -803,11 +803,10 @@
 					});
 					break;
 				default:
-					__webpack_require__.e/* nsure */(4, function (require) {
-						var Editor = __webpack_require__(27);
-						IDE.editor = new Editor({ id: "editor", lib: ace, mode: IDE.qParams.mode });
-						//studio.alert('mode default');
-						//IDE.editor.onReady(loaded)
+					__webpack_require__.e/* nsure */(1/* duplicate */, function (require) {
+						var Editor = __webpack_require__(26);
+						IDE.editor = new Editor({ id: "editor", lib: ace });
+						//studio.alert('mode html');
 						loaded();
 					});
 			}

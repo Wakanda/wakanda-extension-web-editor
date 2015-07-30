@@ -30,11 +30,10 @@ var Module =  {
 				});
 				break;
 			default:
-				require.ensure(["./Editor.js"], function(require){
-					var Editor  = require("./Editor.js");
-					IDE.editor = new Editor({id:"editor", lib: ace, mode:IDE.qParams.mode});
-					//studio.alert('mode default');
-					//IDE.editor.onReady(loaded)
+				require.ensure(["./EditorHTML.js"], function(require){
+					var Editor  = require("./EditorHTML.js");
+					IDE.editor = new Editor({id:"editor", lib: ace});
+					//studio.alert('mode html');
 					loaded();
 				});
 		}
