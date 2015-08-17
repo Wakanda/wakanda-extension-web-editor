@@ -137,7 +137,26 @@
 	};
 
 	IDE.shortcut_plugins_save_save = function () {
+		studio.alert("save() called");
 		IDE.plugins.plugins.save.code.save();
+	};
+
+	IDE.selectByTextOffset = function (offset, length) {
+		//studio.alert('selectByTextOffset called');
+		studio.alert(offset + " + " + length);
+	};
+
+	IDE.getText = function () {
+		studio.alert("getText() called");
+		return "";
+	};
+
+	IDE.getSelectedText = function () {
+		studio.alert("getSelectedText() called");
+	};
+
+	IDE.insertText = function () {
+		studio.alert("insertText() called");
 	};
 
 /***/ },
@@ -154,8 +173,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\common.css", function() {
-			var newContent = require("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\common.css");
+		module.hot.accept("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\common.css", function() {
+			var newContent = require("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\common.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -401,8 +420,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\editor.css", function() {
-			var newContent = require("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\editor.css");
+		module.hot.accept("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\editor.css", function() {
+			var newContent = require("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\editor.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -431,8 +450,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\tree.css", function() {
-			var newContent = require("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\tree.css");
+		module.hot.accept("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\tree.css", function() {
+			var newContent = require("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\styles\\tree.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -5471,8 +5490,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\history\\style.css", function() {
-			var newContent = require("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\history\\style.css");
+		module.hot.accept("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\history\\style.css", function() {
+			var newContent = require("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\history\\style.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -5593,8 +5612,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\save\\style.css", function() {
-			var newContent = require("!!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!c:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\save\\style.css");
+		module.hot.accept("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\save\\style.css", function() {
+			var newContent = require("!!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\node_modules\\css-loader\\index.js!C:\\Users\\cwhou\\Documents\\Wakanda\\Extensions\\htmlCssEditor\\plugins\\save\\style.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

@@ -23,13 +23,11 @@
 
 var actions = {};
 
-actions.loadDone = function loadDone() {
-	//studio.alert('I am done');
-}
-
 actions.save = function save() {
 	//studio.alert('I am done');
 }
+
+
 
 actions.load = function load( message ) {
 	"use strict";

@@ -43,5 +43,24 @@ IDE.loadFile = function(fn) {
 
 	
 IDE.shortcut_plugins_save_save = function() {
+	studio.alert('save() called');
 	IDE['plugins']['plugins']['save']['code']['save']();
+};
+
+IDE.selectByTextOffset = function(offset, length) {
+	//studio.alert('selectByTextOffset called');
+	studio.alert(offset + ' + ' + length);
+};
+
+IDE.getText = function() {
+	studio.alert('getText() called');
+	return "";
+};
+
+IDE.getSelectedText = function() {
+	studio.alert('getSelectedText() called');
+};
+
+IDE.insertText = function() {
+	studio.alert('insertText() called');
 };
