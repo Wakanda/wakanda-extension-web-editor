@@ -179,6 +179,16 @@ webpackJsonp([3],{
 					this.editor.redo();
 				}
 			},
+			selectAll: {
+				value: function selectAll() {
+					this.editor.selectAll();
+				}
+			},
+			selectTo: {
+				value: function selectTo(x, y) {
+					this.editor.selectTo(x, y);
+				}
+			},
 			dirty: {
 				set: function (value) {
 					if (value && !this._dirty) {

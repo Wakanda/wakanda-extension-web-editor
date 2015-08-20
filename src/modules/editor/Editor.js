@@ -134,6 +134,14 @@ class Editor {
 		this.editor.redo();
 	}
 	
+	selectAll() {
+		this.editor.selectAll();
+	}
+	
+	selectTo(x, y) {
+		this.editor.selectTo(x, y);
+	}
+	
 	set dirty(value){
 		if (value && ! this._dirty) {
 			//alert ('set dirty to true');
