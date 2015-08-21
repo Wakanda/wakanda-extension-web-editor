@@ -3,7 +3,7 @@
     {
         "name": "codeEditor",
         "version": "0.0.1",
-        "description": "Code Mirror For Wakanda Studio",
+        "description": "HTML/CSS Code Editor",
         "icon": "icon.png",
         "senders": [
         ],
@@ -25,6 +25,14 @@
 							   },
 							   "save" : {
 											   "callback"  : "IDE.shortcut_plugins_save_save",
+											   "target"    : "webZone" 
+							   },
+							   "getText" : {
+											   "callback" : "IDE.getText",
+											   "target"    : "webZone" 
+							   },
+							   "selectByTextOffset" : {
+											   "callback"  : "IDE.selectByTextOffset",
 											   "target"    : "webZone" 
 							   }
                         }

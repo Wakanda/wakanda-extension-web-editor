@@ -43,7 +43,7 @@ IDE.loadFile = function(fn) {
 
 	
 IDE.shortcut_plugins_save_save = function() {
-	studio.alert('save() called');
+	//studio.alert('save() called');
 	IDE['plugins']['plugins']['save']['code']['save']();
 };
 
