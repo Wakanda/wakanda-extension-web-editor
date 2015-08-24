@@ -19,7 +19,6 @@ IDE.Core = new Core([
 ]);
 
 IDE.Core.onReady(function(){
-	//studio.alert('ready');
 	IDE.plugins.onPluginsLoaded(function(){
 		IDE.plugins.activate("history");
 		IDE.plugins.activate("save");
@@ -27,7 +26,6 @@ IDE.Core.onReady(function(){
 		studio.editor.loaded();
 	});
 
-	//studio.alert('gogo');
 	IDE.plugins.loadMultiple([
 		"history",
 		"save"
@@ -36,14 +34,11 @@ IDE.Core.onReady(function(){
 
 IDE.loadFile = function(fn) {
 	IDE.qParams.path = fn;
-	//alert("IDE.qParams.path =  " + IDE.qParams.path);
-
 	IDE.editor.loadFile();
 };
 
 	
 IDE.shortcut_plugins_save_save = function() {
-	//studio.alert('save() called');
 	IDE['plugins']['plugins']['save']['code']['save']();
 };
 
@@ -51,10 +46,6 @@ IDE.shortcut_plugins_save_save = function() {
 
 
 IDE.selectByTextOffset = function(start, end) {
-	//studio.alert('selectByTextOffset called');
-//studio.alert(start + ' - ' + end);
-	//IDE.editor.editor.selection.selectLine();
-	
 	var aceStartPos;
 	var aceEndPos;
 	var doc = IDE.editor.editor.getSession().getDocument();
@@ -65,14 +56,13 @@ IDE.selectByTextOffset = function(start, end) {
 		var pos = 0;
 		while (row < lines.length && pos + lines[row].length < offsetPos) {
 			pos += lines[row].length;
-			pos++; /*pos++;*/ // for the newline 0x0A 0x0D
+			pos++; // for the newline 0x0D
 			row++;
 		}
 		col = offsetPos - pos;
 		return {row: row, column: col};
 	}
 
-	//if (typeof option.start != "undefined")
 	aceStartPos = posFromOffset(start);
 	aceEndPos = posFromOffset( end );
 
@@ -80,9 +70,7 @@ IDE.selectByTextOffset = function(start, end) {
 	var sel = IDE.editor.editor.getSelection();
 	var range = sel.getRange();
 	
-//studio.alert('raw: ' + aceStartPos.row + '     col: ' + aceStartPos.column);
 	range.setStart( aceStartPos.row, aceStartPos.column );
-//studio.alert('raw: ' + aceEndPos.row + '     col: ' + aceEndPos.column);
 	range.setEnd( aceEndPos.row, aceEndPos.column );
 	sel.setSelectionRange( range );
 };
@@ -97,9 +85,9 @@ IDE.getText = function() {
 };
 
 IDE.getSelectedText = function() {
-	studio.alert('getSelectedText() called');
+
 };
 
 IDE.insertText = function() {
-	studio.alert('insertText() called');
+
 };
