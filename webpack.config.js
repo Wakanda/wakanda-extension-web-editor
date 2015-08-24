@@ -1,3 +1,12 @@
+var webpack = require('webpack');
+
+var environment = process.env.NODE_ENV || "development";
+
+var definePlugin = new webpack.DefinePlugin({
+  __NODE_ENV__ : JSON.stringify(environment),
+  __DEV__: environment == 'development'
+});
+
 module.exports = {
 	entry  : {
 		main : "./main.js"
@@ -17,5 +26,6 @@ module.exports = {
 			{ test: /\.css$/, exclude: /node_modules/, loader: 'style-loader!css-loader'},
 			{ test: /\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
 		]
-	}
+	},
+  	plugins: [definePlugin]
 };
