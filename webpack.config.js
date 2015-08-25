@@ -33,7 +33,7 @@ var filesToCompile = [
 pluginsToLoad.push(function() {
   this.plugin("done", function(stats) {
     filesToCompile.forEach(function(fileName){
-	    var source = fs.readFileSync(path.join(__dirname, fileName),{encoding:'utf8'});
+	    var source = fs.readFileSync(path.join(__dirname, 'src/', fileName),{encoding:'utf8'});
 	    var target = ejs.render(source, {
 	    	env: environment,
 	    	buildDir: buildFolder,
