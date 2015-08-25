@@ -13,9 +13,7 @@ IDE.Core = new Core([
 	"qParams",
 	"toolbar",
 	"fileManager",
-	//"explorer",
-	"editor"
-	//"tabManager"	
+	"editor"	
 ]);
 
 IDE.Core.onReady(function(){
@@ -78,22 +76,16 @@ IDE.selectByTextOffset = function(start, end) {
 IDE.getText = function() {
 	var content2Search = IDE.editor.getContent();
 	
-	// the walkaround of find in files API
+	// the workaround of find in files API
 	content2Search = content2Search.replace(/(\n)/gm,"");
 	
 	return content2Search;
 };
 
 IDE.getSelectedText = function() {
-	if (__DEV__) {
-		//studio.alert(IDE.editor.editor.getSelectedText());
-	}
 	return IDE.editor.editor.getSelectedText();
 };
 
 IDE.insertText = function(text2Insert) {
-	if (__DEV__) {
-		//studio.alert(text2Insert);
-	}
 	IDE.editor.editor.session.replace(IDE.editor.editor.selection.getRange(), text2Insert) 
 };

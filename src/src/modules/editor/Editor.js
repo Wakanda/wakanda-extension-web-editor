@@ -63,7 +63,6 @@ class Editor {
 			if(rawFile.readyState === 4) {
 				if(rawFile.status === 200 || rawFile.status == 0) {
 					allText = rawFile.responseText;
-					//studio.alert(allText);
 				}
 			}
 		}
@@ -73,7 +72,6 @@ class Editor {
 	
 	loadFile(){
 		var path = IDE.qParams.path;
-		//studio.alert('loadFile ' + path);
 		
 		if (IDE.qParams.path.indexOf('.html', this.length - '.html'.length) !== -1)
 			IDE.qParams.mode = 'html';

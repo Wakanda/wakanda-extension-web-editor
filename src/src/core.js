@@ -17,7 +17,9 @@ class Core {
 		this.events = new _EventEmitter();
 		
 		coreModules.forEach(function(moduleName){
-			console.log(moduleName);
+			if(!__PROD__) {
+				console.log(moduleName);
+			}
 			var module = require(`./modules/${moduleName}/index.js`);
 			
 			module.activate(function(){
