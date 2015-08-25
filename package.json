@@ -8,7 +8,7 @@
     "webpack-build": "./node_modules/webpack/bin/webpack.js --progress --colors -d",
     "webpack-build-test": "NODE_ENV=test ./node_modules/webpack/bin/webpack.js --progress --colors -d",
     "webpack-build-prod": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress --colors -p",
-    "test": "./node_modules/.bin/karma start",
+    "test": "NODE_ENV=test ./node_modules/.bin/karma start",
     "postinstall": "npm run webpack-build"
   },
   "author": "Wakanda SAS",
