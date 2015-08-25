@@ -1,7 +1,8 @@
 var webpack = require('webpack'),
 	path = require('path'),
 	fs = require('fs'),
-	ejs = require('ejs');
+	ejs = require('ejs'),
+	Clean = require('clean-webpack-plugin');
 
 // output build folder
 var buildFolder = "./build/";
@@ -20,6 +21,7 @@ var definePlugin = new webpack.DefinePlugin({
 // webpack plugin loader
 var pluginsToLoad = [
 	definePlugin,
+	new Clean([buildFolder]),
 	new webpack.HotModuleReplacementPlugin()
 ];
 
