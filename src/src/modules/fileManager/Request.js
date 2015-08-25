@@ -1,4 +1,4 @@
-import {HttpClient} from "../../../lib/aurelia-http-client";
+import {HttpClient} from "../../../../lib/aurelia-http-client";
 
 var IDE = window.IDE;
 

@@ -9,7 +9,7 @@ class Tree {
 		
 		this.container = container;
 		
-		var _EventEmitter   = require('../../../lib/micro-events.js');
+		var _EventEmitter   = require('../../../../lib/micro-events.js');
 		this.events = new _EventEmitter();
 				
 		this.create(options);
@@ -93,8 +93,8 @@ class Tree {
 	}
 	
 	render() {
-		var jstree = require("../../../lib/jstree/jstree.js");
-		var $      = require("../../..//lib/jquery-2.1.3.min.js");
+		var jstree = require("../../../../lib/jstree/jstree.js");
+		var $      = require("../../../../lib/jquery-2.1.3.min.js");
 		
 		this.$container = $(this.container);
 		
@@ -111,7 +111,7 @@ class Tree {
 		
 		this.events.on("ready", ()=>this.init() );
 		var that     = this;
-		var interact = require("../../../lib/interact-1.2.4.min.js");
+		var interact = require("../../../../lib/interact-1.2.4.min.js");
 		
 		interact('.cloud-ide-tree-editor-handle')
 		.draggable({

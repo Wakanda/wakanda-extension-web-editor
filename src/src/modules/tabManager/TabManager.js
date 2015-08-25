@@ -21,7 +21,7 @@ var tabManager = (function(){
 		if (_worker) {
 			throw new Error('tabManager allready connected');
 		}
-		_worker = new SharedWorker('/ce/src/modules/tabManager/shared-worker.js');
+		_worker = new SharedWorker('./shared-worker.js');
 		_worker.port.addEventListener('message', onmessage, false);
 		_worker.port.start();
 

@@ -3,7 +3,7 @@ var IDE = window.IDE;
 class PluginsManager {
 	constructor(){
 		
-		var _EventEmitter   = require('../../../lib/micro-events.js');
+		var _EventEmitter   = require('../../../../lib/micro-events.js');
 		this.events = new _EventEmitter();
 		
 		this.toolbarElements  = [];

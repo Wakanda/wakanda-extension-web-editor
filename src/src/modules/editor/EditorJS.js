@@ -10,7 +10,7 @@ class EditorJS extends Editor {
 	}
 	
 	initMode() {
-		require("../../../lib/ace-min-noconflict/ext-language_tools");
+		require("../../../../lib/ace-min-noconflict/ext-language_tools");
 		this.setOptions({
 			enableBasicAutocompletion: true,
 			enableLiveAutocompletion: true,

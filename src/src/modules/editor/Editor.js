@@ -7,7 +7,7 @@ class Editor {
 		this.options = options;		
 		this._dirty  = false;
 		
-		var _EventEmitter   = require('../../../lib/micro-events.js');
+		var _EventEmitter   = require('../../../../lib/micro-events.js');
 		this.events = new _EventEmitter();
 		
 		this.init(id);

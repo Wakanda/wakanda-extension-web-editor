@@ -1,19 +1,60 @@
-var webpack = require('webpack');
+var webpack = require('webpack'),
+	path = require('path'),
+	fs = require('fs'),
+	ejs = require('ejs');
 
+// output build folder
+var buildFolder = "./build/";
+
+// environment variables
 var environment = process.env.NODE_ENV || "development";
 
 var definePlugin = new webpack.DefinePlugin({
-  __NODE_ENV__ : JSON.stringify(environment),
-  __DEV__: environment == 'development'
+	__BUILD_DIR__ : buildFolder, 
+	__NODE_ENV__ : JSON.stringify(environment),
+	__DEV__: environment == 'development',
+	__PROD__: environment == 'production',
+	__TEST__: environment == 'test'
+});
+
+// webpack plugin loader
+var pluginsToLoad = [
+	definePlugin,
+	new webpack.HotModuleReplacementPlugin()
+];
+
+//must end with .build.ejs
+var filesToCompile = [
+	"index.build.ejs"
+];
+
+pluginsToLoad.push(function() {
+  this.plugin("done", function(stats) {
+    filesToCompile.forEach(function(fileName){
+	    var source = fs.readFileSync(path.join(__dirname, fileName),{encoding:'utf8'});
+	    var target = ejs.render(source, {
+	    	env: environment,
+	    	buildDir: buildFolder,
+	    	hash: stats.hash
+	    });
+	    var targetFileName = fileName.replace('.build.ejs','.html');
+	    fs.writeFileSync(
+	    	path.join(__dirname, targetFileName),
+	    	target
+	    );
+	    process.stdout.write('File '+fileName+' processed to '+targetFileName+'\n');
+    });
+  });
 });
 
 module.exports = {
 	entry  : {
-		main : "./main.js"
+		main : "./src/main.js"
 	},
 	output : {
-		filename : "[name].build.js",
-		path     : "./"
+		path     : buildFolder,
+		publicPath: buildFolder,
+		filename : "[name].build.js"
 	},
 	resolve : {
 		alias : {
@@ -22,10 +63,17 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.js$/, exclude: /node_modules|ace/, loader: 'babel-loader'},
+			{ 
+				test: /\.js$/, 
+				exclude: /node_modules|ace/, 
+				loader: 'babel-loader',
+				query: {
+			        blacklist: ["useStrict"]
+		      	}
+  			},
 			{ test: /\.css$/, exclude: /node_modules/, loader: 'style-loader!css-loader'},
 			{ test: /\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
 		]
 	},
-  	plugins: [definePlugin]
+  	plugins: pluginsToLoad
 };

@@ -13,7 +13,7 @@ class Core {
 		this.activatedPlugins = [];
 		this.plugins          = {};
 		
-		var _EventEmitter   = require('../lib/micro-events.js');
+		var _EventEmitter   = require('../../lib/micro-events.js');
 		this.events = new _EventEmitter();
 		
 		coreModules.forEach(function(moduleName){
