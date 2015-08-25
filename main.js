@@ -85,9 +85,15 @@ IDE.getText = function() {
 };
 
 IDE.getSelectedText = function() {
-
+	if (__DEV__) {
+		//studio.alert(IDE.editor.editor.getSelectedText());
+	}
+	return IDE.editor.editor.getSelectedText();
 };
 
-IDE.insertText = function() {
-
+IDE.insertText = function(text2Insert) {
+	if (__DEV__) {
+		//studio.alert(text2Insert);
+	}
+	IDE.editor.editor.session.replace(IDE.editor.editor.selection.getRange(), text2Insert) 
 };

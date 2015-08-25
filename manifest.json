@@ -34,6 +34,14 @@
 							   "selectByTextOffset" : {
 											   "callback"  : "IDE.selectByTextOffset",
 											   "target"    : "webZone" 
+							   },
+							   "getSelectedText" : {
+											   "callback" : "IDE.getSelectedText",
+											   "target"    : "webZone" 
+							   },
+							   "insertText" : {
+											   "callback"  : "IDE.insertText",
+											   "target"    : "webZone" 
 							   }
                         }
 					}

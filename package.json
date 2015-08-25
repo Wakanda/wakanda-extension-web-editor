@@ -4,11 +4,11 @@
   "description": "Cloud IDE Code Editor",
   "main": "main.js",
   "scripts": {
-    "webpack-server": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors -d",
-    "webpack-watch": "./node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
-    "webpack-build": "./node_modules/webpack/bin/webpack.js --progress --colors -d",
-    "webpack-build-test": "NODE_ENV=test ./node_modules/webpack/bin/webpack.js --progress --colors -d",
-    "webpack-build-prod": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress --colors -p",
+    "webpack-server": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors -d",
+    "webpack-watch": "node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
+    "webpack-build": "node_modules/webpack/bin/webpack.js --progress --colors -d",
+    "webpack-build-test": "NODE_ENV=test node_modules/webpack/bin/webpack.js --progress --colors -d",
+    "webpack-build-prod": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --colors -p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run webpack-build"
   },
