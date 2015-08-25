@@ -6,7 +6,7 @@ class Core {
 	constructor(coreModules){
 		var that = this;
 		
-		if( IDE.Core ) {
+		if( IDE && IDE.Core ) {
 			throw "Only one instance of core is allowed.";
 		}
 		

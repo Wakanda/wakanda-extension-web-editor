@@ -3,7 +3,7 @@ import Request from "./Request";
 class FileManager {
 	
 	constructor() {
-		super();
+		//super();
 		//this.client = new Request();
 	}
 	

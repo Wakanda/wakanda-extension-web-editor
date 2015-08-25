@@ -2,8 +2,9 @@ import Editor from "./Editor";
 
 class EditorHTML extends Editor {
 	constructor(...args){
-		this.mode = "css";
 		super(...args);
+		
+		this.mode = "css";
 		
 		this.initMode();
 	}
