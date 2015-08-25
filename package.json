@@ -4,25 +4,32 @@
   "description": "Cloud IDE Code Editor",
   "main": "main.js",
   "scripts": {
-    "webpack-server": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors -d",
-    "webpack-watch": "node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
-    "webpack-build": "node_modules/webpack/bin/webpack.js --progress --colors -d",
-    "webpack-build-test": "NODE_ENV=test node_modules/webpack/bin/webpack.js --progress --colors -d",
-    "webpack-build-prod": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --colors -p",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack-watch": "./node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
+    "webpack-build": "./node_modules/webpack/bin/webpack.js --progress --colors -d",
+    "webpack-build-test": "NODE_ENV=test ./node_modules/webpack/bin/webpack.js --progress --colors -d",
+    "webpack-build-prod": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress --colors -p",
+    "test": "./node_modules/.bin/karma start",
     "postinstall": "npm run webpack-build"
   },
-  "author": "",
+  "author": "Wakanda SAS",
   "license": "MIT",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.16.0",
+    "ejs": "^2.3.3",
+    "file-loader": "^0.8.4",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.11.0"
+  },
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babel-core": "^4.7.16",
-    "babel-loader": "^4.2.0",
-    "css-loader": "^0.9.1",
-    "file-loader": "^0.8.1",
-    "style-loader": "^0.9.0",
-    "url-loader": "^0.5.5",
-    "webpack": "^1.7.3",
-    "webpack-dev-server": "^1.8.0"
+    "chai": "^3.2.0",
+    "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "mocha": "^2.2.5"
   }
 }
