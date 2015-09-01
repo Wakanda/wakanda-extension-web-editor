@@ -20,28 +20,22 @@
 						"editor": "index.html",
 						"operations" : {
 							   "load" : {
-											   "callback" : "IDE.loadFile",
-											   "target"    : "webZone" 
+									"callback" : "IDE.loadFile"
 							   },
 							   "save" : {
-											   "callback"  : "IDE.shortcut_plugins_save_save",
-											   "target"    : "webZone" 
+									"callback"  : "IDE.shortcut_plugins_save_save"
 							   },
 							   "getText" : {
-											   "callback" : "IDE.getText",
-											   "target"    : "webZone" 
+									"callback" : "IDE.getText"
 							   },
 							   "selectByTextOffset" : {
-											   "callback"  : "IDE.selectByTextOffset",
-											   "target"    : "webZone" 
+									"callback"  : "IDE.selectByTextOffset"
 							   },
 							   "getSelectedText" : {
-											   "callback" : "IDE.getSelectedText",
-											   "target"    : "webZone" 
+									"callback" : "IDE.getSelectedText" 
 							   },
 							   "insertText" : {
-											   "callback"  : "IDE.insertText",
-											   "target"    : "webZone" 
+									"callback"  : "IDE.insertText"
 							   }
                         }
 					}

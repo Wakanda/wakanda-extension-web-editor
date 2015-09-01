@@ -65,11 +65,17 @@ IDE.selectByTextOffset = function(start, end) {
 	aceEndPos = posFromOffset( end );
 
 
+	// scroll to line firstly
+	IDE.editor.editor.resize(true);
+	IDE.editor.editor.scrollToLine(50, true, true, function () {});
+
+
 	var sel = IDE.editor.editor.getSelection();
 	var range = sel.getRange();
 	
 	range.setStart( aceStartPos.row, aceStartPos.column );
 	range.setEnd( aceEndPos.row, aceEndPos.column );
+
 	sel.setSelectionRange( range );
 };
 
@@ -78,7 +84,6 @@ IDE.getText = function() {
 	
 	// the workaround of find in files API
 	content2Search = content2Search.replace(/(\n)/gm,"");
-	
 	return content2Search;
 };
 
