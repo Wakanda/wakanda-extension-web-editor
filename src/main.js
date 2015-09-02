@@ -67,8 +67,9 @@ IDE.selectByTextOffset = function(start, end) {
 
 	// scroll to line firstly
 	IDE.editor.editor.resize(true);
-	IDE.editor.editor.scrollToLine(50, true, true, function () {});
 
+	var scrollLine = parseInt((aceStartPos.row + aceEndPos.row)/2)+1;
+	IDE.editor.editor.scrollToLine(scrollLine, true, true, function () {});
 
 	var sel = IDE.editor.editor.getSelection();
 	var range = sel.getRange();
