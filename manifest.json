@@ -2,7 +2,7 @@
     "extension": 
     {
         "name": "codeEditor",
-        "version": "0.2.0",
+        "version": "0.2.2",
         "description": "HTML/CSS Code Editor",
         "icon": "icon.png",
         "senders": [
