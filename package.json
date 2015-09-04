@@ -1,6 +1,6 @@
 {
   "name": "Cloud-IDE-CE",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Cloud IDE Code Editor",
   "main": "main.js",
   "scripts": {
