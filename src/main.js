@@ -82,9 +82,6 @@ IDE.selectByTextOffset = function(start, end) {
 
 IDE.getText = function() {
 	var content2Search = IDE.editor.getContent();
-	
-	// the workaround of find in files API
-	content2Search = content2Search.replace(/(\n)/gm,"");
 	return content2Search;
 };
 
