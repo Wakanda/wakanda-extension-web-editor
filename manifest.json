@@ -1,46 +1,38 @@
 {
-    "extension": 
-    {
+    "extension": {
         "name": "codeEditor",
         "version": "0.2.3",
         "description": "HTML/CSS Code Editor",
         "icon": "icon.png",
-        "senders": [
-        ],
-        "actions": [
-					{
-                        "name": "load",
-                        "title": "Load"
-                    }
-        ],
-		
-		"editors":[ 
-					{ 
-						"fileExtensions": ["html", "css"],
-						"editor": "index.html",
-						"operations" : {
-							   "load" : {
-									"callback" : "IDE.loadFile"
-							   },
-							   "save" : {
-									"callback"  : "IDE.shortcut_plugins_save_save"
-							   },
-							   "getText" : {
-									"callback" : "IDE.getText"
-							   },
-							   "selectByTextOffset" : {
-									"callback"  : "IDE.selectByTextOffset"
-							   },
-							   "getSelectedText" : {
-									"callback" : "IDE.getSelectedText" 
-							   },
-							   "insertText" : {
-									"callback"  : "IDE.insertText"
-							   }
-                        }
-					}
-		],
-		
+        "senders": [],
+        "actions": [{
+            "name": "load",
+            "title": "Load"
+        }],
+        "editors": [{
+            "fileExtensions": ["html", "css"],
+            "editor": "index.html",
+            "operations": {
+                "load": {
+                    "callback": "IDE.loadFile"
+                },
+                "save": {
+                    "callback": "IDE.shortcut_plugins_save_save"
+                },
+                "getText": {
+                    "callback": "IDE.getText"
+                },
+                "selectByTextOffset": {
+                    "callback": "IDE.selectByTextOffset"
+                },
+                "getSelectedText": {
+                    "callback": "IDE.getSelectedText"
+                },
+                "insertText": {
+                    "callback": "IDE.insertText"
+                }
+            }
+        }],
         "lifetime": "application_lifetime"
     }
 }
