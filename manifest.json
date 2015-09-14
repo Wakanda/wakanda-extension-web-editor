@@ -1,46 +1,38 @@
 {
-    "extension": 
-    {
-        "name": "codeEditor",
-        "version": "0.2.3",
-        "description": "HTML/CSS Code Editor",
+    "extension": {
+        "name": "htmlCssEditor",
+        "version": "0.3.0",
+        "description": "HTML/CSS File Editor",
         "icon": "icon.png",
-        "senders": [
-        ],
-        "actions": [
-					{
-                        "name": "load",
-                        "title": "Load"
-                    }
-        ],
-		
-		"editors":[ 
-					{ 
-						"fileExtensions": ["html", "css"],
-						"editor": "index.html",
-						"operations" : {
-							   "load" : {
-									"callback" : "IDE.loadFile"
-							   },
-							   "save" : {
-									"callback"  : "IDE.shortcut_plugins_save_save"
-							   },
-							   "getText" : {
-									"callback" : "IDE.getText"
-							   },
-							   "selectByTextOffset" : {
-									"callback"  : "IDE.selectByTextOffset"
-							   },
-							   "getSelectedText" : {
-									"callback" : "IDE.getSelectedText" 
-							   },
-							   "insertText" : {
-									"callback"  : "IDE.insertText"
-							   }
-                        }
-					}
-		],
-		
+        "senders": [],
+        "actions": [{
+            "name": "load",
+            "title": "Load"
+        }],
+        "editors": [{
+            "fileExtensions": ["html", "css"],
+            "editor": "index.html",
+            "operations": {
+                "onLoad": {
+                    "callback": "IDE.loadFile"
+                },
+                "onSave": {
+                    "callback": "IDE.shortcut_plugins_save_save"
+                },
+                "onGetTextForSearching": {
+                    "callback": "IDE.getText"
+                },
+                "onSelectByTextOffsetForSearching": {
+                    "callback": "IDE.selectByTextOffset"
+                },
+                "onGetSelectedTextForReplacing": {
+                    "callback": "IDE.getSelectedText"
+                },
+                "onInsertTextForReplacing": {
+                    "callback": "IDE.insertText"
+                }
+            }
+        }],
         "lifetime": "application_lifetime"
     }
 }

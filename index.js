@@ -27,8 +27,6 @@ actions.save = function save() {
 	//studio.alert('I am done');
 }
 
-
-
 actions.load = function load( message ) {
 	"use strict";
 	
@@ -59,8 +57,6 @@ actions.load = function load( message ) {
 		
 		studio.extension.storage.setItem( 'extension' , studio.extension.getFolder().path );
 		studio.extension.storage.setItem( 'mode' , mode );
-
-//studio.alert('load ' + message.params.file);
 		studio.extension.storage.setItem( 'file' , message.params.file );
 	}
 	return true;

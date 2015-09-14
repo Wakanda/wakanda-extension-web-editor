@@ -21,6 +21,7 @@ IDE.Core.onReady(function(){
 		IDE.plugins.activate("history");
 		IDE.plugins.activate("save");
 		IDE.plugins.events.emit("all_activated");
+		IDE.refreshPreferences();
 		studio.editor.loaded();
 	});
 
@@ -91,4 +92,23 @@ IDE.getSelectedText = function() {
 
 IDE.insertText = function(text2Insert) {
 	IDE.editor.editor.session.replace(IDE.editor.editor.selection.getRange(), text2Insert) 
+};
+
+IDE.getPreferences = function() {
+	var preferences = {};
+
+	preferences.fontFamily = studio.getPref('fontName');
+	preferences.fontSize = studio.getPref('fontSize');
+    preferences.theme = studio.getPreferences('codeEditor.colorScheme') ? 'ace/theme/' + studio.getPreferences('codeEditor.colorScheme') : 'ace/theme/monokai';
+    preferences.tabSize = studio.getEditorPref('js','tabSize');
+    preferences.useSoftTabs = studio.getEditorPref('js','insertSpacesForTabs') || false;
+    preferences.displayIndentGuides = studio.getPref('showTabulationLine') || false;
+    preferences.showLineNumbers = studio.getPref('showLineNumbers') || false;
+    preferences.fadeFoldWidgets = studio.getPref('autohideCollapseButton') || false;
+    
+	return preferences;
+};
+
+IDE.refreshPreferences = function() {
+	IDE.editor.editor.setOptions(IDE.getPreferences());	
 };
