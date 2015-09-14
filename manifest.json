@@ -13,22 +13,22 @@
             "fileExtensions": ["html", "css"],
             "editor": "index.html",
             "operations": {
-                "load": {
+                "onLoad": {
                     "callback": "IDE.loadFile"
                 },
-                "save": {
+                "onSave": {
                     "callback": "IDE.shortcut_plugins_save_save"
                 },
-                "getText": {
+                "onGetTextForSearching": {
                     "callback": "IDE.getText"
                 },
-                "selectByTextOffset": {
+                "onSelectByTextOffsetForSearching": {
                     "callback": "IDE.selectByTextOffset"
                 },
-                "getSelectedText": {
+                "onGetSelectedTextForReplacing": {
                     "callback": "IDE.getSelectedText"
                 },
-                "insertText": {
+                "onInsertTextForReplacing": {
                     "callback": "IDE.insertText"
                 }
             }
