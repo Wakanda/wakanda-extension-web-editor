@@ -1,8 +1,8 @@
 {
     "extension": {
-        "name": "codeEditor",
-        "version": "0.2.3",
-        "description": "HTML/CSS Code Editor",
+        "name": "htmlCssEditor",
+        "version": "0.3.0",
+        "description": "HTML/CSS File Editor",
         "icon": "icon.png",
         "senders": [],
         "actions": [{
