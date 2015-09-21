@@ -63,15 +63,18 @@ IDE.selectByTextOffset = function(start, end) {
 	}
 
 	aceStartPos = posFromOffset(start);
-	aceEndPos = posFromOffset( end );
-
+	aceEndPos = posFromOffset(end);
 
 	// scroll to line firstly
 	IDE.editor.editor.resize(true);
 
 	var scrollLine = parseInt((aceStartPos.row + aceEndPos.row)/2)+1;
-	IDE.editor.editor.scrollToLine(scrollLine, true, true, function () {});
+	IDE.editor.editor.scrollToLine(scrollLine, true, true);
 
+	var scrollColumn = parseInt(aceStartPos.column);
+	IDE.editor.editor.navigateFileStart();
+	IDE.editor.editor.navigateLeft(scrollColumn);
+	
 	var sel = IDE.editor.editor.getSelection();
 	var range = sel.getRange();
 	
