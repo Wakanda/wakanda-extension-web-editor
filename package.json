@@ -1,7 +1,7 @@
 {
-  "name": "Cloud-IDE-CE",
-  "version": "0.3.1",
-  "description": "Cloud IDE Code Editor",
+  "name": "htmlCssEditor",
+  "version": "0.3.2",
+  "description": "HTML/CSS File Editor",
   "main": "main.js",
   "scripts": {
     "webpack-watch": "./node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
