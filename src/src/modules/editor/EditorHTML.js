@@ -10,9 +10,13 @@ class EditorHTML extends Editor {
 	}
 	
 	initMode() {
+		require("../../../../lib/ace-min-noconflict/ext-language_tools.js");
 		require("../../../../lib/ace-min-noconflict/ext-emmet.js");
 		this.setOptions({
-			"enableEmmet" : true
+			enableEmmet : true,
+			enableBasicAutocompletion: true,
+			enableSnippets: true,
+			enableLiveAutocompletion: true
 		});
 	}
 }
