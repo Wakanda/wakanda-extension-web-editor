@@ -101,7 +101,7 @@ IDE.getPreferences = function() {
 	var preferences = {};
 
 	preferences.fontFamily = studio.getPref('fontName');
-	preferences.fontSize = studio.getPref('fontSize');
+	preferences.fontSize = navigator.platform.indexOf('Win') > -1 ? studio.getPref('fontSize')+'pt' : studio.getPref('fontSize')+'px';
     preferences.theme = studio.getPreferences('codeEditor.colorScheme') ? 'ace/theme/' + studio.getPreferences('codeEditor.colorScheme') : 'ace/theme/chrome';
     preferences.tabSize = studio.getEditorPref('js','tabSize');
     preferences.useSoftTabs = studio.getEditorPref('js','insertSpacesForTabs') || false;
