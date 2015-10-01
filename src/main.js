@@ -29,6 +29,10 @@ IDE.Core.onReady(function(){
 		"history",
 		"save"
 	]);	
+
+	window.onblur = function() { 
+		IDE.editor.editor.clearSelection();
+	};
 });
 
 IDE.loadFile = function(fn) {
