@@ -1,6 +1,6 @@
 {
   "name": "htmlCssEditor",
-  "version": "0.3.6",
+  "version": "1.0.0",
   "description": "HTML/CSS File Editor",
   "main": "main.js",
   "scripts": {
