@@ -1,13 +1,13 @@
-# htmlCssEditor
+# Wakanda Web Editor
 
-This repo contains a HTML and CSS code editor for Wakanda based on ACE editor.
+An HTML and CSS editor for Wakanda Studio, based on [ACE editor](http://ace.c9.io/) and [Emmet](http://emmet.io/).
 
 ## Install
 
 Clone this repository in your `Wakanda/Extensions` folder:
 
 ```shell
-git clone https://github.com/Wakanda/cloud-ide-extension-htmlCssEditor.git htmlCssEditor
+git clone https://github.com/Wakanda/wakanda-extension-web-editor.git
 ```
 
 ## How to build
