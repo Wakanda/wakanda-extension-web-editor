@@ -7,7 +7,6 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
@@ -20,13 +19,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'test/helpers.js',
-        'lib/emmet.js',
-        'lib/ace-min-noconflict/ace.js',
-        'build/main.build.js',
-        'build/*.js',
-        'test/main.js'
+        { pattern: 'test/helpers.js', included: true, watched: true },
+        { pattern: 'lib/ace-min-noconflict/**/*.js' },
+        { pattern: 'build/main.build.js', watched: true },
+        { pattern: 'build/*.js', watched: true },
+        { pattern: 'test/main.js', watched: true }
     ],
+
+    // proxies fix for 404 errors
+    proxies:  {
+      '/build': 'file:///build',
+      '/base/lib': 'file:///base/lib',
+    },
 
     // list of files to exclude
     exclude: [
@@ -37,14 +41,11 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress'],
 
-
     // web server port
     port: 9876,
 
-
     // enable / disable colors in the output (reporters and logs)
     colors: true,
-
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
