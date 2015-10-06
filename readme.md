@@ -15,13 +15,21 @@ git clone https://github.com/Wakanda/cloud-ide-extension-htmlCssEditor.git htmlC
 The application is built from sources using webpack.
 
 1. Install [Node.js](https://nodejs.org/en/)
+
 2. To install dependencies run in the command line inside the root folder of the project
 
     ````
     npm install
     ````
     A first build will be run after the installation of all the dependencies.
-2. To build the application run in the command line inside the root folder of the project
+    
+    NOTE: Some npm plugins may need [node-gyp](https://www.npmjs.com/package/node-gyp) and its dependencies to be installed. You can find more details [here](https://github.com/nodejs/node-gyp#installation).
+    
+    NOTE: Because of npm's way of nesting node_modules folders the path becomes longer than the max acceptable on Windows, the solution is to map your local folder to a drive letter:  
+	- To map the current directory to a free drive letter S subst s: .\
+	- To remove the mapping subst s: /D
+
+3. To build the application run in the command line inside the root folder of the project
 	````
 	npm run webpack-build-prod
 	````
