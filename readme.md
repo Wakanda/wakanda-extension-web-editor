@@ -18,7 +18,7 @@ The application is built from sources using webpack.
 2. To install dependencies run in the command line inside the root folder of the project
 
     ````
-    npm install node
+    npm install
     ````
     A first build will be run after the installation of all the dependencies.
 2. To build the application run in the command line inside the root folder of the project
