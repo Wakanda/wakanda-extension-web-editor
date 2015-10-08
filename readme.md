@@ -25,7 +25,7 @@ The application is built from sources using webpack.
     
     NOTE: Some npm plugins may need [node-gyp](https://www.npmjs.com/package/node-gyp) and its dependencies to be installed. You can find more details [here](https://github.com/nodejs/node-gyp#installation).
     
-    NOTE: Because of npm's way of nesting node_modules folders the path becomes longer than the max acceptable on Windows, the solution is to map your local folder to a drive letter:  
+    NOTE for windows users: Because of npm's way of nesting node_modules folders the path becomes longer than the max acceptable on Windows, the solution is to map your local folder to a drive letter:  
 	- To map the current directory to a free drive letter S subst s: .\
 	- To remove the mapping subst s: /D
 
