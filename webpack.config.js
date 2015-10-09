@@ -9,6 +9,11 @@ var buildFolder = "./build/";
 
 // environment variables
 var environment = process.env.NODE_ENV || "development";
+if (process.argv.indexOf('--build-prod') > 0) {
+	environment = 'production';
+} else if (process.argv.indexOf('--build-test') > 0) {
+	environment = 'test';
+}
 
 var definePlugin = new webpack.DefinePlugin({
 	__BUILD_DIR__ : buildFolder, 
