@@ -1,8 +1,8 @@
 {
     "extension": {
-        "name": "htmlCssEditor",
-        "version": "1.0.0",
-        "description": "HTML/CSS File Editor",
+        "name": "wakanda-extension-web-editor",
+        "version": "1.0.1",
+        "description": "Wakanda Studio Extension for HTML and CSS",
         "icon": "icon.png",
         "senders": [],
         "actions": [{
