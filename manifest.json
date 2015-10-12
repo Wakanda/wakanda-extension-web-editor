@@ -2,7 +2,7 @@
     "extension": {
         "name": "wakanda-extension-web-editor",
         "version": "1.0.1",
-        "description": "Wakanda Studio Extension for HTML and CSS",
+        "description": "An HTML and CSS editor for Wakanda Studio",
         "icon": "icon.png",
         "senders": [],
         "actions": [{

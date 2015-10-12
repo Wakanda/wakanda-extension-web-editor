@@ -1,7 +1,7 @@
 {
   "name": "wakanda-extension-web-editor",
   "version": "1.0.1",
-  "description": "Wakanda Studio Extension for HTML and CSS",
+  "description": "An HTML and CSS editor for Wakanda Studio",
   "main": "main.js",
   "scripts": {
     "webpack-watch": "node ./node_modules/webpack/bin/webpack.js --watch --progress --colors -d",
