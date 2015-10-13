@@ -14,22 +14,22 @@
             "editor": "index.html",
             "operations": {
                 "onLoad": {
-                    "callback": "IDE.loadFile"
+                    "callback": "IDE.studioManager.loadFile"
                 },
                 "onSave": {
-                    "callback": "IDE.shortcut_plugins_save_save"
+                    "callback": "IDE.studioManager.shortcut_plugins_save_save"
                 },
                 "onGetTextForSearching": {
-                    "callback": "IDE.getText"
+                    "callback": "IDE.studioManager.getText"
                 },
                 "onSelectByTextOffsetForSearching": {
-                    "callback": "IDE.selectByTextOffset"
+                    "callback": "IDE.studioManager.selectByTextOffset"
                 },
                 "onGetSelectedTextForReplacing": {
-                    "callback": "IDE.getSelectedText"
+                    "callback": "IDE.studioManager.getSelectedText"
                 },
                 "onInsertTextForReplacing": {
-                    "callback": "IDE.insertText"
+                    "callback": "IDE.studioManager.insertText"
                 }
             }
         }],
