@@ -22,11 +22,13 @@ IDE.Core.onReady(function(){
 	IDE.plugins.onPluginsLoaded(function(){
 		IDE.plugins.activate("history");
 		IDE.plugins.activate("save");
+		IDE.plugins.activate("studioPreferences");
 		IDE.plugins.events.emit("all_activated");
 	});
 
 	IDE.plugins.loadMultiple([
 		"history",
-		"save"
+		"save",
+		"studioPreferences"
 	]);	
 });
