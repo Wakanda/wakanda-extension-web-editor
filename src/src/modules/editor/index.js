@@ -29,8 +29,8 @@ var Module =  {
 				});
 				break;
 			default:
-				require.ensure(["./EditorHTML.js"], function(require){
-					var Editor  = require("./EditorHTML.js");
+				require.ensure(["./EditorJS.js"], function(require){
+					var Editor  = require("./EditorJS.js");
 					IDE.editor = new Editor({id:"editor", lib: ace});
 					loaded();
 				});

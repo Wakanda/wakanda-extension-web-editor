@@ -4,7 +4,7 @@ class FileManager {
 	
 	constructor() {
 		//super();
-		//this.client = new Request();
+		this.client = new Request();
 	}
 	
 	getTree(path) {

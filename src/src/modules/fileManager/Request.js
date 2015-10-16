@@ -9,13 +9,13 @@ class Request extends HttpClient {
 		super(...args);
 		
 		this.configure(function(request){
-			var authToken = localStorage.getItem("auth-token");
 			var projectID = IDE.qParams.project;
-			
-			request.withBaseUri(`/api/1.0/projects/${projectID}`);
-			request.withHeader('Authorization', `Bearer ${authToken}`);
-			request.withHeader('X-R-ID', 'TEST');
-			
+			if (projectID) {
+				var authToken = localStorage.getItem("auth-token");
+				request.withBaseUri(`/api/1.0/projects/${projectID}`);
+				request.withHeader('Authorization', `Bearer ${authToken}`);
+				request.withHeader('X-R-ID', 'TEST');
+			}
 		});
 		
 	}
