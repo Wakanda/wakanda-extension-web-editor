@@ -16,15 +16,13 @@ class FileManager {
 	}
 	
 	getFile(path){
-		return this.client.createRequest("/files")
-		.withParams({path})
+		return this.client.createRequest(path)
 		.asGet()	
 		.send();
 	}
 	
 	setFile(path, content){
-		return this.client.createRequest("/files")
-		.withParams({path})
+		return this.client.createRequest(path)
 		.asPut()
 		.withContent(content)
 		.send();

@@ -17,5 +17,6 @@ export default {
     init() {
         var studioManager    = new StudioManager();
         IDE.studioManager    = studioManager;
+        IDE.fileManager.getFile = IDE.studioManager.getFile;
     }
 }

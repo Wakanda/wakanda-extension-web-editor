@@ -19,6 +19,27 @@ class StudioManager {
 		IDE.editor.editor.setOptions(this.getPreferences());	
 	}
 
+	getFile(path) {
+		// override to FileManager actual implementation
+		return new Promise(function(resolve, reject) {
+        	let rawFile = new XMLHttpRequest();
+			rawFile.open("GET", path, false);
+
+			rawFile.withCredentials = true;
+			rawFile.onreadystatechange = function () {
+				if(rawFile.readyState === 4) {
+					console.log(rawFile)
+					if(rawFile.status === 200 || rawFile.status == 0) {
+						resolve(rawFile);
+					} else {
+						reject(rawFile);
+					}
+				}
+			}
+			rawFile.send(null);
+        });
+	}
+
 	loadFile(fn) {
 		IDE.qParams.path = fn;
 		IDE.editor.loadFile();
