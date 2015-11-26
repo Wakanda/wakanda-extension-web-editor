@@ -18,13 +18,13 @@
  * Toolbar
  */
 .page_toolbar {
-	background-color:#fff;
 	position: absolute;
 	left: 0px;
 	right: 0px;
 	top: 0px;
-	height: 32px;
-	border-bottom: 1px solid #F9F9F9;
+	height: 30px;
+	background: #fafafa;
+	border-bottom: 1px solid #cdcdcd;
  }
  
 .page-toolbar-items {
@@ -36,15 +36,15 @@
 
 .page-toolbar-item {
 	float: left;
-	height: 32px;
-	width: 32px;
+	height: 16px;
+	width: 16px;
+	margin: 7px;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .page-toolbar-item-separator {
-	width: 0.4rem;
-	border-right: 1px solid #ccc;
+	width: 0.1rem;
 }
 /*
  * Tree
@@ -65,7 +65,7 @@
 	position:absolute;
 	left:0px;
 	right:0px;
-	top:34px;
+	top:31px;
 	bottom:0px;
 }
 /*
