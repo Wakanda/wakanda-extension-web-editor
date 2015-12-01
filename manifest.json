@@ -30,6 +30,9 @@
                 },
                 "onInsertTextForReplacing": {
                     "callback": "IDE.insertText"
+                },
+                "onReload": {
+                    "callback": "window.location.reload"
                 }
             }
         }],
