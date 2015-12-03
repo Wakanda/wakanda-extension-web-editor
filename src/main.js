@@ -40,6 +40,10 @@ IDE.loadFile = function(fn) {
 	IDE.editor.loadFile();
 };
 
+IDE.reloadFile = function(fn) {
+	IDE.qParams.path = fn;
+	window.location.reload();
+};
 	
 IDE.shortcut_plugins_save_save = function() {
 	IDE['plugins']['plugins']['save']['code']['save']();
