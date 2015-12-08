@@ -24,7 +24,6 @@ export default {
 	},
   
 	save(){
-		
 		IDE.toolbar.removeClassToItem("save", "save-enabled");
 		
 		IDE.editor.setReadOnly(true);
@@ -34,7 +33,7 @@ export default {
 		studio.editor.setDirty(false);
 		IDE.editor.dirty = false;
 		IDE.editor.setReadOnly(false);
-		studio.extension.syncBufferTimestamp(IDE.qParams.path);
+		studio.extension.syncBufferTimestamp();
 	},
 	
 	onDirty(){
