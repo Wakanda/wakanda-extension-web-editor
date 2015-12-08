@@ -9,20 +9,6 @@ export default {
 		IDE.editor.onClean(this.onClean);
 	},
 	
-	/*
-	save(){
-		
-		IDE.toolbar.removeClassToItem("save", "save-enabled");
-		
-		IDE.editor.setReadOnly(true);
-		
-		IDE.fileManager.setFile(IDE.qParams.path, IDE.editor.getContent()).then(function(){
-			IDE.editor.dirty = false;
-			IDE.editor.setReadOnly(false);
-		});
-	},
-	*/
-	
 	saveTextAsFile(fileNameToSaveAs, textToWrite) {
 		var file2Save = studio.File(fileNameToSaveAs);
 		if ( !file2Save.exists )
@@ -38,7 +24,6 @@ export default {
 	},
   
 	save(){
-		
 		IDE.toolbar.removeClassToItem("save", "save-enabled");
 		
 		IDE.editor.setReadOnly(true);
@@ -48,12 +33,10 @@ export default {
 		studio.editor.setDirty(false);
 		IDE.editor.dirty = false;
 		IDE.editor.setReadOnly(false);
-
+		studio.extension.syncBufferTimestamp();
 	},
 	
 	onDirty(){
-		//document.title = `(*) ${document.title}`;
-		//alert('on dirty, by whom?');
 		studio.editor.setDirty(true);
 		IDE.toolbar.addClassToItem("save", "save-enabled");
 	},
