@@ -48,7 +48,8 @@ export default {
 		studio.editor.setDirty(false);
 		IDE.editor.dirty = false;
 		IDE.editor.setReadOnly(false);
-
+		//studio.alert('sauve!');
+		studio.extension.syncBufferTimestamp(IDE.qParams.path);
 	},
 	
 	onDirty(){
