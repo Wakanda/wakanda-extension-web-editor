@@ -1,6 +1,6 @@
 {
   "name": "wakanda-extension-web-editor",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "An HTML and CSS editor for Wakanda Studio",
   "main": "main.js",
   "scripts": {
