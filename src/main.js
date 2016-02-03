@@ -33,6 +33,10 @@ IDE.Core.onReady(function(){
 	window.onblur = function() { 
 		IDE.editor.editor.clearSelection();
 	};
+
+	window.onfocus = function() { 
+		IDE.editor.editor.focus();
+	};
 });
 
 IDE.loadFile = function(fn) {
@@ -40,6 +44,10 @@ IDE.loadFile = function(fn) {
 	IDE.editor.loadFile();
 };
 
+IDE.reloadFile = function(fn) {
+	IDE.qParams.path = fn;
+	window.location.reload();
+};
 	
 IDE.shortcut_plugins_save_save = function() {
 	IDE['plugins']['plugins']['save']['code']['save']();
