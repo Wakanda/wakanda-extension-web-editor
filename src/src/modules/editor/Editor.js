@@ -27,33 +27,10 @@ class Editor {
 		var document = this.document || this.editor.session.getDocument();
 		
 		document.on("change", (...args)=> {
-			//alert ('in registerEvents, set dirty to true');
 			setTimeout(()=>this.dirty = true , 0);
 			setTimeout(()=>this.events.emit("editor.onchange", {name : "editor.onchange", params : args}), 0);
 		});
 	}
-	
-	/*
-	loadFile(){
-		var path = IDE.qParams.path;
-		
-		IDE.fileManager.getFile(path).then((event)=>{
-			var content = event.response;
-			
-			this.setContent(content);
-			//
-			// Ace Workaround
-			// {
-			//
-			this.editor.session.setUndoManager(new (this.lib.UndoManager)());
-			//
-			// }
-			//
-			 
-			this.ready();			
-		});
-	}
-	*/
 	
 	readTextFile(filePath) {
 		var rawFile = new XMLHttpRequest();
@@ -72,23 +49,80 @@ class Editor {
 	
 	loadFile(){
 		var path = IDE.qParams.path;
-		
-		if (IDE.qParams.path.indexOf('.html', this.length - '.html'.length) !== -1)
-			IDE.qParams.mode = 'html';
-		else if (IDE.qParams.path.indexOf('.css', this.length - '.css'.length) !== -1)
-			IDE.qParams.mode = 'css';
-		else
-			IDE.qParams.mode = 'html';
-	
+		var extension = IDE.qParams.path.split('.').pop();
+		switch (extension) {
+			case "css":
+				IDE.qParams.mode = "css";
+				break;
+			case "html":
+			case "xhtml":
+			case "htm":
+				IDE.qParams.mode = "html";
+				break;
+			case "jade":
+				IDE.qParams.mode = "jade";
+				break;
+			case "java":
+			case "jsp":
+				IDE.qParams.mode = "java";
+				break;
+			case "js":
+			case "jsm":
+			case "jsx":
+				IDE.qParams.mode = "javascript";
+				break;
+			case "less":
+				IDE.qParams.mode = "less";
+				break;
+			case "md":
+			case "markdown":
+				IDE.qParams.mode = "markdown";
+				break;
+			case "php":
+			case "phtml":
+			case "ctp":
+			case "phpt":
+			case "phps":
+				IDE.qParams.mode = "php";
+				break;
+			case "pl":
+			case "pm":
+				IDE.qParams.mode = "perl";
+				break;
+			case "py":
+			case "pyc":
+			case "pyo":
+				IDE.qParams.mode = "python";
+				break;
+			case "rb":
+			case "ru":
+			case "gemspec":
+			case "rake":
+				IDE.qParams.mode = "ruby";
+				break;
+			case "twig":
+			case "swig":
+				IDE.qParams.mode = "twig";
+				break;
+			case "sass":
+				IDE.qParams.mode = "sass";
+				break;
+			case "scss":
+				IDE.qParams.mode = "scss";
+				break;
+			case "yml":
+			case "yaml":
+				IDE.qParams.mode = "yaml";
+				break;
+			default:
+				IDE.qParams.mode = "plain_text";
+				break;
+		}
 		var content = this.readTextFile(path);
-		
-		
-		
 		this.setContent(content);
+		this.mode = IDE.qParams.mode;
 		this.setMode(IDE.qParams.mode);
 		this.editor.session.setUndoManager(new (this.lib.UndoManager)());
-		//alert ('in loadFile, set dirty to false');
-		//this.dirty = false;		
 		this.registerEvents();
 	}
 	
@@ -142,15 +176,11 @@ class Editor {
 	
 	set dirty(value){
 		if (value && ! this._dirty) {
-			//alert ('set dirty to true');
 			this._dirty = true;
 			this.events.emit("editor.ondirty", {name : "editor.ondirty"});
 		} else if (!value && this._dirty) {
-			//alert ('set dirty to false');
 			this._dirty = false;
 			this.events.emit("editor.onclean", {name : "editor.onclean"});
-		} else {
-			//alert ('set dirty to nothing');
 		}
 	}
 	

@@ -10,7 +10,18 @@
             "title": "Init"
         }],
         "editors": [{
-            "fileExtensions": ["html", "css"],
+            "fileExtensions": [
+                "html", "xhtml", "htm",
+                "twig", "swig", "jade",
+                "css", "less", "scss", "sass",
+                "php", "phtml", "ctp", "phpt", "phps"
+                "pl", "pm",
+                "py", "pyc", "pyo",
+                "rb", "ru", "gemspec", "rake",
+                "java", "jsp",
+                "yaml", "yml",
+                "md", "markdown"
+            ],
             "editor": "index.html",
             "operations": {
                 "onLoad": {
