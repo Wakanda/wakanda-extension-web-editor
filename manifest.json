@@ -6,8 +6,8 @@
         "icon": "icon.png",
         "senders": [],
         "actions": [{
-            "name": "load",
-            "title": "Load"
+            "name": "init",
+            "title": "Init"
         }],
         "editors": [{
             "fileExtensions": ["html", "css"],
