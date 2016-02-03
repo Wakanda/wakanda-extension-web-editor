@@ -33,6 +33,10 @@ IDE.Core.onReady(function(){
 	window.onblur = function() { 
 		IDE.editor.editor.clearSelection();
 	};
+
+	window.onfocus = function() { 
+		IDE.editor.editor.focus();
+	};
 });
 
 IDE.loadFile = function(fn) {
