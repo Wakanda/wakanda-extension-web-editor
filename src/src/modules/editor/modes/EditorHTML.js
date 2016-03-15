@@ -1,6 +1,6 @@
-import Editor from "./Editor";
+import Editor from "../Editor";
 
-class EditorHTML extends Editor {
+class Html extends Editor {
 	constructor(...args){
 		super(...args);
 		
@@ -10,8 +10,8 @@ class EditorHTML extends Editor {
 	}
 	
 	initMode() {
-		require("../../../../lib/ace-min-noconflict/ext-language_tools.js");
-		require("../../../../lib/ace-min-noconflict/ext-emmet.js");
+		require("../../../../../lib/ace-min-noconflict/ext-language_tools.js");
+		require("../../../../../lib/ace-min-noconflict/ext-emmet.js");
 		this.setOptions({
 			enableEmmet : true,
 			enableBasicAutocompletion: true,
@@ -21,4 +21,4 @@ class EditorHTML extends Editor {
 	}
 }
 
-export default EditorHTML;
+export default Html;
