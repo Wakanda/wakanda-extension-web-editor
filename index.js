@@ -23,45 +23,9 @@
 
 var actions = {};
 
-actions.save = function save() {
-	//studio.alert('I am done');
-}
-
-actions.load = function load( message ) {
-	"use strict";
+actions.init = function init() {
 	
-	if ( message.params.file !== '' ) {
-	
-		var file	= studio.File(message.params.file);
-		var mode	= '';
-		
-		switch ( file.extension.toLowerCase() ) {
-		
-			case 'js':
-				mode = 'javascript';
-				break;
-			case 'html':
-				mode = 'htmlmixed';
-				break;
-			case 'css':
-				mode = 'css';
-				break;
-			case 'waperm':
-			case 'xml':
-				mode = 'xml';
-				break;
-			default:
-				mode = 'htmlmixed';			
-		};
-		
-		
-		studio.extension.storage.setItem( 'extension' , studio.extension.getFolder().path );
-		studio.extension.storage.setItem( 'mode' , mode );
-		studio.extension.storage.setItem( 'file' , message.params.file );
-	}
-	return true;
-}
-
+};
 
 exports.handleMessage = function handleMessage(message) {
 	"use strict";

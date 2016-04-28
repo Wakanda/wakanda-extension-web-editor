@@ -66,8 +66,10 @@ class Toolbar {
 			var pluginName = target.getAttribute("data-plugin");
 			var command    = target.getAttribute("data-command");			
 			var plugin     = IDE.plugins.get(pluginName);
-			plugin.code[command]();
-			
+			if (command) {
+				plugin.code[command]();
+			}
+			IDE.editor.editor.focus();
 		});
 	}
 	

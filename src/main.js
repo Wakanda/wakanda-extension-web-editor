@@ -33,6 +33,10 @@ IDE.Core.onReady(function(){
 	window.onblur = function() { 
 		IDE.editor.editor.clearSelection();
 	};
+
+	window.onfocus = function() { 
+		IDE.editor.editor.focus();
+	};
 });
 
 IDE.loadFile = function(fn) {
@@ -110,12 +114,12 @@ IDE.getPreferences = function() {
 
 	preferences.fontFamily = studio.getPref('fontName');
 	preferences.fontSize = navigator.platform.indexOf('Win') > -1 ? studio.getPref('fontSize')+'pt' : studio.getPref('fontSize')+'px';
-    preferences.theme = studio.getPreferences('codeEditor.colorScheme') ? 'ace/theme/' + studio.getPreferences('codeEditor.colorScheme') : 'ace/theme/chrome';
-    preferences.tabSize = studio.getEditorPref('js','tabSize');
-    preferences.useSoftTabs = studio.getEditorPref('js','insertSpacesForTabs') || false;
-    preferences.displayIndentGuides = studio.getPref('showTabulationLine') || false;
-    preferences.showLineNumbers = studio.getPref('showLineNumbers') || false;
-    preferences.fadeFoldWidgets = studio.getPref('autohideCollapseButton') || false;
+  preferences.theme = studio.getPreferences('codeEditor.colorScheme') ? 'ace/theme/' + studio.getPreferences('codeEditor.colorScheme') : 'ace/theme/chrome';
+  preferences.tabSize = studio.getEditorPref('js','tabSize');
+  preferences.useSoftTabs = studio.getEditorPref('js','insertSpacesForTabs') || false;
+  preferences.displayIndentGuides = studio.getPref('showTabulationLine') || false;
+  preferences.showLineNumbers = studio.getPref('showLineNumbers') || false;
+  preferences.fadeFoldWidgets = studio.getPref('autohideCollapseButton') || false;
     
 	return preferences;
 };
