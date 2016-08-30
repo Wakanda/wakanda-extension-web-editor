@@ -15,7 +15,7 @@
                 "html", "xhtml", "htm",
                 "twig", "swig", "jade",
                 "css", "less", "scss", "sass",
-                "php", "phtml", "ctp", "phpt", "phps"
+                "php", "phtml", "ctp", "phpt", "phps",
                 "pl", "pm",
                 "py", "pyc", "pyo",
                 "rb", "ru", "gemspec", "rake",

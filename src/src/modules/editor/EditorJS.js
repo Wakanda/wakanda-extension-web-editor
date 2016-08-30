@@ -1,6 +1,6 @@
-import Editor from "../Editor";
+import Editor from "./Editor";
 
-class EditorJAVASCRIPT extends Editor {	
+class EditorJS extends Editor {	
 	constructor(...args){
 		super(...args);
 		
@@ -10,7 +10,7 @@ class EditorJAVASCRIPT extends Editor {
 	}
 	
 	initMode() {
-		require("../../../../../lib/ace-min-noconflict/ext-language_tools");
+		require("../../../../lib/ace-min-noconflict/ext-language_tools");
 		this.setOptions({
 			enableBasicAutocompletion: true,
 			enableLiveAutocompletion: true,
@@ -19,4 +19,4 @@ class EditorJAVASCRIPT extends Editor {
 	}
 }
 
-export default EditorJAVASCRIPT;
+export default EditorJS;

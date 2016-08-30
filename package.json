@@ -32,5 +32,6 @@
     "karma-chrome-launcher": "^0.2.0",
     "karma-mocha": "^0.2.0",
     "mocha": "^2.2.5"
-  }
+  },
+  "hash": "5b3d5d61290fd39d58362fc10a4c67c7ccb30ff8"
 }
